@@ -5,9 +5,6 @@
 
 import fluidPlayerInitializer from './index';
 
-// Import CSS automatically in browser builds.
-import './css/fluidplayer.css';
-
 if (window) {
     /**
      * Register public interface.
