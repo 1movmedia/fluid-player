@@ -24,7 +24,7 @@ const getDistOptions = (mode) => {
         case 'development':
             return {
                 path: path.resolve(__dirname, 'dist'),
-                publicPath: '/'
+                publicPath: '/tube/fluid/js/'
             };
         case 'current':
             return {
