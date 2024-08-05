@@ -136,7 +136,7 @@ module.exports = (env, argv) => {
         },
         output: {
             filename: '[name].min.js',
-            chunkFilename: '[name].[chunkhash].min.js',
+            chunkFilename: '[name].min.js',
             path: wpDistOptions.path,
             publicPath: wpDistOptions.publicPath
         },
