@@ -206,7 +206,8 @@ const fluidPlayerClass = function () {
                     autoHide: false,
                     autoHideTimeout: 3,
                     animated: true,
-                    playbackRates: ['x2', 'x1.5', 'x1', 'x0.5']
+                    playbackRates: ['x2', 'x1.5', 'x1', 'x0.5'],
+                    instantScrolling: false
                 },
                 timelinePreview: {
                     spriteImage: false,
@@ -945,11 +946,15 @@ const fluidPlayerClass = function () {
         );
     };
 
-    self.contolProgressbarUpdate = () => {
+    self.contolProgressbarUpdate = currentTime => {
         const currentProgressTag = self.domRef.player.parentNode.getElementsByClassName('fluid_controls_currentprogress');
 
+        if (!currentTime) {
+            currentTime = self.domRef.player.currentTime;
+        }
+
         for (let i = 0; i < currentProgressTag.length; i++) {
-            currentProgressTag[i].style.width = (self.domRef.player.currentTime / self.currentVideoDuration * 100) + '%';
+            currentProgressTag[i].style.width = (currentTime / self.currentVideoDuration * 100) + '%';
         }
     };
 
@@ -1249,6 +1254,7 @@ const fluidPlayerClass = function () {
         self.displayOptions.layoutControls.playPauseAnimation = false;
         // we need an initial position for touchstart events, as mouse up has no offset x for iOS
         let initialPosition;
+        let lastPosition = NaN;
 
         if (self.displayOptions.layoutControls.showCardBoardView) {
             initialPosition = self.getEventOffsetX(event, event.target.parentNode);
@@ -1267,20 +1273,28 @@ const fluidPlayerClass = function () {
             self.domRef.player.pause();
         }
 
-        const shiftTime = timeBarX => {
+        const shiftTime = (timeBarX, throttle) => {
             const totalWidth = self.domRef.wrapper.querySelector('.fluid_controls_progress_container').clientWidth;
+
+            let newTime = self.domRef.player.currentTime;
+
             if (totalWidth) {
-                self.domRef.player.currentTime = self.currentVideoDuration * timeBarX / totalWidth;
+                newTime = self.currentVideoDuration * timeBarX / totalWidth;
+                if (!throttle) {
+                    self.domRef.player.currentTime = newTime;
+                }
             }
 
             self.hideSuggestedVideos();
+
+            return newTime;
         };
 
         const onProgressbarMouseMove = event => {
-            const currentX = self.getEventOffsetX(event, event.target.parentNode);
+            lastPosition = self.getEventOffsetX(event, event.target.parentNode);
             initialPosition = NaN; // mouse up will fire after the move, we don't want to trigger the initial position in the event of iOS
-            shiftTime(currentX);
-            self.contolProgressbarUpdate();
+            let newTime = shiftTime(lastPosition, !self.displayOptions.layoutControls.controlBar.instantScrolling);
+            self.contolProgressbarUpdate(newTime);
             self.controlDurationUpdate();
         };
 
@@ -1292,10 +1306,14 @@ const fluidPlayerClass = function () {
 
             let clickedX = self.getEventOffsetX(event, event.target.parentNode);
 
-            if (isNaN(clickedX) && !isNaN(initialPosition)) {
-                clickedX = initialPosition;
+            if (isNaN(clickedX)) {
+                if (!isNaN(initialPosition)) {
+                    clickedX = initialPosition;
+                }
+                else if (!isNaN(lastPosition)) {
+                    clickedX = lastPosition;
+                }
             }
-
             if (!isNaN(clickedX)) {
                 shiftTime(clickedX);
             }
