@@ -734,26 +734,21 @@ const fluidPlayerClass = function () {
             controls.root.className = controls.root.className + ' skip_controls';
         }
 
-        // Left container
-        controls.leftContainer = document.createElement('div');
-        controls.leftContainer.className = 'fluid_controls_left';
-        controls.root.appendChild(controls.leftContainer);
-
         // Left container -> Play/Pause
         controls.playPause = document.createElement('div');
         controls.playPause.className = 'fluid_button fluid_button_play fluid_control_playpause';
-        controls.leftContainer.appendChild(controls.playPause);
+        controls.root.appendChild(controls.playPause);
 
         if (options.controlForwardBackward) {
             // Left container -> Skip backwards
             controls.skipBack = document.createElement('div');
             controls.skipBack.className = 'fluid_button fluid_button_skip_back';
-            controls.leftContainer.appendChild(controls.skipBack);
+            controls.root.appendChild(controls.skipBack);
 
             // Left container -> Skip forward
             controls.skipForward = document.createElement('div');
             controls.skipForward.className = 'fluid_button fluid_button_skip_forward';
-            controls.leftContainer.appendChild(controls.skipForward);
+            controls.root.appendChild(controls.skipForward);
         }
 
         // Progress container
@@ -787,67 +782,62 @@ const fluidPlayerClass = function () {
         controls.adMarkers.className = 'fluid_controls_ad_markers_holder';
         controls.progressContainer.appendChild(controls.adMarkers);
 
-        // Right container
-        controls.rightContainer = document.createElement('div');
-        controls.rightContainer.className = 'fluid_controls_right';
-        controls.root.appendChild(controls.rightContainer);
-
         // Right container -> Fullscreen
         controls.fullscreen = document.createElement('div');
         controls.fullscreen.className = 'fluid_button fluid_control_fullscreen fluid_button_fullscreen';
-        controls.rightContainer.appendChild(controls.fullscreen);
+        controls.root.appendChild(controls.fullscreen);
 
         if (options.miniPlayer.enabled) {
             // Right container -> MiniPlayer
             controls.miniPlayer = document.createElement('div');
             controls.miniPlayer.className = 'fluid_button fluid_control_mini_player fluid_button_mini_player';
-            controls.rightContainer.appendChild(controls.miniPlayer);
+            controls.root.appendChild(controls.miniPlayer);
         }
 
         // Right container -> Theatre
         controls.theatre = document.createElement('div');
         controls.theatre.className = 'fluid_button fluid_control_theatre fluid_button_theatre';
-        controls.rightContainer.appendChild(controls.theatre);
+        controls.root.appendChild(controls.theatre);
 
         // Right container -> Cardboard
         controls.cardboard = document.createElement('div');
         controls.cardboard.className = 'fluid_button fluid_control_cardboard fluid_button_cardboard';
         if (self.displayOptions.layoutControls.showCardBoardView) {
-            controls.rightContainer.appendChild(controls.cardboard);
+            controls.root.appendChild(controls.cardboard);
         }
 
         // Right container -> Subtitles
         controls.subtitles = document.createElement('div');
         controls.subtitles.className = 'fluid_button fluid_control_subtitles fluid_button_subtitles';
         if (self.displayOptions.layoutControls.subtitlesEnabled) {
-            controls.rightContainer.appendChild(controls.subtitles);
+            controls.root.appendChild(controls.subtitles);
         }
 
         // Right container -> Video source
         controls.videoSource = document.createElement('div');
         controls.videoSource.className = 'fluid_button fluid_control_video_source fluid_button_video_source';
         if (self.domRef.player.getElementsByTagName('source').length > 1) {
-            controls.rightContainer.appendChild(controls.videoSource);
+            controls.root.appendChild(controls.videoSource);
         }
 
         // Right container -> Playback rate
         controls.playbackRate = document.createElement('div');
         controls.playbackRate.className = 'fluid_button fluid_control_playback_rate fluid_button_playback_rate';
         if (self.displayOptions.layoutControls.playbackRateEnabled) {
-            controls.rightContainer.appendChild(controls.playbackRate);
+            controls.root.appendChild(controls.playbackRate);
         }
 
         // Right container -> Download
         controls.download = document.createElement('div');
         controls.download.className = 'fluid_button fluid_control_download fluid_button_download';
         if (self.displayOptions.layoutControls.allowDownload) {
-            controls.rightContainer.appendChild(controls.download);
+            controls.root.appendChild(controls.download);
         }
 
         // Right container -> Volume container
         controls.volumeContainer = document.createElement('div');
         controls.volumeContainer.className = 'fluid_control_volume_container fluid_slider';
-        controls.rightContainer.appendChild(controls.volumeContainer);
+        controls.root.appendChild(controls.volumeContainer);
 
         // Right container -> Volume container -> Volume
         controls.volume = document.createElement('div');
@@ -867,13 +857,13 @@ const fluidPlayerClass = function () {
         // Right container -> Volume container
         controls.mute = document.createElement('div');
         controls.mute.className = 'fluid_button fluid_button_volume fluid_control_mute';
-        controls.rightContainer.appendChild(controls.mute);
+        controls.root.appendChild(controls.mute);
 
         // Right container -> Volume container
         controls.duration = document.createElement('div');
         controls.duration.className = 'fluid_control_duration fluid_fluid_control_duration';
         controls.duration.innerText = '00:00 / 00:00';
-        controls.rightContainer.appendChild(controls.duration);
+        controls.root.appendChild(controls.duration);
 
         return controls;
     };
@@ -2161,6 +2151,11 @@ const fluidPlayerClass = function () {
         });
 
         const sourceChangeButton = self.domRef.wrapper.querySelector('.fluid_control_video_source');
+
+        if (sourceChangeButton === null) {
+            return;
+        }
+
         self.videoSources = sources;
 
         if (self.videoSources.length > 1) {
@@ -2957,7 +2952,7 @@ const fluidPlayerClass = function () {
             && self.displayOptions.layoutControls.persistentSettings.quality) {
             const sourceOption = self.domRef.wrapper.querySelector('.js-source_' + self.fluidStorage.fluidQuality);
             const sourceChangeButton = self.domRef.wrapper.querySelector('.fluid_control_video_source');
-            if (sourceOption) {
+            if (sourceOption && sourceChangeButton !== null) {
                 sourceOption.click();
                 sourceChangeButton.click();
             }
