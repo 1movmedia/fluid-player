@@ -812,27 +812,37 @@ const fluidPlayerClass = function () {
         // Right container -> Cardboard
         controls.cardboard = document.createElement('div');
         controls.cardboard.className = 'fluid_button fluid_control_cardboard fluid_button_cardboard';
-        controls.rightContainer.appendChild(controls.cardboard);
+        if (self.displayOptions.layoutControls.showCardBoardView) {
+            controls.rightContainer.appendChild(controls.cardboard);
+        }
 
         // Right container -> Subtitles
         controls.subtitles = document.createElement('div');
         controls.subtitles.className = 'fluid_button fluid_control_subtitles fluid_button_subtitles';
-        controls.rightContainer.appendChild(controls.subtitles);
+        if (self.displayOptions.layoutControls.subtitlesEnabled) {
+            controls.rightContainer.appendChild(controls.subtitles);
+        }
 
         // Right container -> Video source
         controls.videoSource = document.createElement('div');
         controls.videoSource.className = 'fluid_button fluid_control_video_source fluid_button_video_source';
-        controls.rightContainer.appendChild(controls.videoSource);
+        if (self.domRef.player.getElementsByTagName('source').length > 1) {
+            controls.rightContainer.appendChild(controls.videoSource);
+        }
 
         // Right container -> Playback rate
         controls.playbackRate = document.createElement('div');
         controls.playbackRate.className = 'fluid_button fluid_control_playback_rate fluid_button_playback_rate';
-        controls.rightContainer.appendChild(controls.playbackRate);
+        if (self.displayOptions.layoutControls.playbackRateEnabled) {
+            controls.rightContainer.appendChild(controls.playbackRate);
+        }
 
         // Right container -> Download
         controls.download = document.createElement('div');
         controls.download.className = 'fluid_button fluid_control_download fluid_button_download';
-        controls.rightContainer.appendChild(controls.download);
+        if (self.displayOptions.layoutControls.allowDownload) {
+            controls.rightContainer.appendChild(controls.download);
+        }
 
         // Right container -> Volume container
         controls.volumeContainer = document.createElement('div');
