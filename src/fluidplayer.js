@@ -399,7 +399,9 @@ const fluidPlayerClass = function () {
 
         self.createVideoSourceSwitch();
 
-        self.createSubtitles();
+        if (self.displayOptions.layoutControls.subtitlesEnabled) {
+            self.createSubtitles();
+        }
 
         self.createCardboard();
 
@@ -1960,44 +1962,12 @@ const fluidPlayerClass = function () {
         if (!!self.displayOptions.layoutControls.controlForwardBackward.doubleTapMobile) {
             self.initDoubleTapSkip();
         }
-
-        self.initSkipAnimationElements();
     };
 
     self.initSkipControls = () => {
         self.domRef.controls.skipBack.addEventListener('click', self.skipRelative.bind(this, -self.timeSkipOffsetAmount));
         self.domRef.controls.skipForward.addEventListener('click', self.skipRelative.bind(this, self.timeSkipOffsetAmount));
     };
-
-    /**
-     * Creates the skip animation elements and appends them to the player
-     *
-     * @returns {void}
-     */
-    self.initSkipAnimationElements = function initSkipAnimationElements() {
-        const skipAnimationWrapper = document.createElement('div');
-        skipAnimationWrapper.classList.add('fluid_player_skip_offset');
-
-        const skipAnimationBackward = document.createElement('div');
-        skipAnimationBackward.classList.add('fluid_player_skip_offset__backward');
-        skipAnimationWrapper.appendChild(skipAnimationBackward);
-
-        const skipAnimationBackwardIcon = document.createElement('div');
-        skipAnimationBackwardIcon.classList.add('fluid_player_skip_offset__backward-icon');
-        skipAnimationBackwardIcon.ontransitionend = () => skipAnimationBackwardIcon.classList.remove('animate');
-        skipAnimationBackward.appendChild(skipAnimationBackwardIcon);
-
-        const skipAnimationForward = document.createElement('div');
-        skipAnimationForward.classList.add('fluid_player_skip_offset__forward');
-        skipAnimationWrapper.appendChild(skipAnimationForward);
-
-        const skipAnimationForwardIcon = document.createElement('div');
-        skipAnimationForwardIcon.classList.add('fluid_player_skip_offset__forward-icon');
-        skipAnimationForwardIcon.ontransitionend = () => skipAnimationForwardIcon.classList.remove('animate');
-        skipAnimationForward.appendChild(skipAnimationForwardIcon);
-
-        self.domRef.player.parentNode.insertBefore(skipAnimationWrapper, self.domRef.player.nextSibling);
-    }
 
     /**
      * Initialises the double tap skip functionality
@@ -2053,15 +2023,6 @@ const fluidPlayerClass = function () {
             skipTo = 0;
         }
         self.domRef.player.currentTime = skipTo;
-
-        // Trigger animation
-        if (timeOffset >= 0) {
-            const forwardElement = self.domRef.wrapper.querySelector(`.fluid_player_skip_offset__forward-icon`);
-            forwardElement.classList.add('animate');
-        } else {
-            const backwardElement = self.domRef.wrapper.querySelector(`.fluid_player_skip_offset__backward-icon`);
-            backwardElement.classList.add('animate');
-        }
     }
 
     /**
