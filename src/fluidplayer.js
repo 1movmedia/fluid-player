@@ -231,10 +231,6 @@ const fluidPlayerClass = function () {
                     show: false,
                     doubleTapMobile: true
                 },
-                contextMenu: {
-                    controls: true,
-                    links: []
-                },
                 miniPlayer: {
                     enabled: true,
                     width: 400,
@@ -1821,78 +1817,8 @@ const fluidPlayerClass = function () {
             }, false);
     };
 
-    self.setCustomContextMenu = () => {
-        const playerWrapper = self.domRef.wrapper;
-
-        const showDefaultControls = self.displayOptions.layoutControls.contextMenu.controls;
-        const extraLinks = self.displayOptions.layoutControls.contextMenu.links;
-
-        //Create own context menu
-        const divContextMenu = document.createElement('div');
-        divContextMenu.className = 'fluid_context_menu';
-        divContextMenu.style.display = 'none';
-        divContextMenu.style.position = 'absolute';
-
-        const contextMenuList = document.createElement('ul');
-        divContextMenu.appendChild(contextMenuList);
-
-        if (Array.isArray(extraLinks)) {
-            extraLinks.forEach(function appendExtraLinks(link, index) {
-                const linkItem = document.createElement('li');
-                linkItem.innerHTML = link.label;
-                linkItem.addEventListener('click', () => window.open(link.href, '_blank'), false);
-                contextMenuList.appendChild(linkItem);
-            });
-        }
-
-        if (showDefaultControls) {
-            const menuItemPlay = document.createElement('li');
-            menuItemPlay.className = 'context_option_play';
-            menuItemPlay.innerHTML = self.displayOptions.captions.play;
-            menuItemPlay.addEventListener('click', () => self.playPauseToggle(), false);
-            contextMenuList.appendChild(menuItemPlay);
-
-            const menuItemMute = document.createElement('li');
-            menuItemMute.className = 'context_option_mute';
-            menuItemMute.innerHTML = self.displayOptions.captions.mute;
-            menuItemMute.addEventListener('click', () => self.muteToggle(), false);
-            contextMenuList.appendChild(menuItemMute);
-
-            const menuItemFullscreen = document.createElement('li');
-            menuItemFullscreen.className = 'context_option_fullscreen';
-            menuItemFullscreen.innerHTML = self.displayOptions.captions.fullscreen;
-            menuItemFullscreen.addEventListener('click', () => self.fullscreenToggle(), false);
-            contextMenuList.appendChild(menuItemFullscreen);
-        }
-
-        const menuItemVersion = document.createElement('li');
-        menuItemVersion.innerHTML = 'Fluid Player ' + self.version;
-        menuItemVersion.addEventListener('click', () => window.open(self.homepage, '_blank'), false)
-        contextMenuList.appendChild(menuItemVersion);
-
-        self.domRef.player.parentNode.insertBefore(divContextMenu, self.domRef.player.nextSibling);
-
-        //Disable the default context menu
-        playerWrapper.addEventListener('contextmenu', e => {
-            e.preventDefault();
-
-            divContextMenu.style.left = self.getEventOffsetX(e, self.domRef.player) + 'px';
-            divContextMenu.style.top = self.getEventOffsetY(e, self.domRef.player) + 'px';
-            divContextMenu.style.display = 'block';
-        }, false);
-
-        //Hide the context menu on clicking elsewhere
-        document.addEventListener('click', e => {
-            if ((e.target !== self.domRef.player) || e.button !== 2) {
-                divContextMenu.style.display = 'none';
-            }
-        }, false);
-    };
-
     self.setDefaultLayout = () => {
         self.domRef.wrapper.className += ' fluid_player_layout_' + self.displayOptions.layoutControls.layout;
-
-        self.setCustomContextMenu();
 
         const controls = self.generateCustomControlTags({
             displayVolumeBar: self.checkShouldDisplayVolumeBar(),

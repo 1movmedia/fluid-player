@@ -103,13 +103,6 @@ declare interface LayoutControls {
         show: boolean;
         doubleTapMobile: boolean;
     }>;
-    contextMenu: Partial<{
-        controls: boolean;
-        links: Array<{
-            href: string;
-            label: string;
-        }>;
-    }>;
     miniPlayer: Partial<{
         enabled: boolean;
         width: number;

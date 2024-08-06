@@ -666,45 +666,6 @@
     position: absolute;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 13px;
-    font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
-    font-weight: normal;
-    white-space: nowrap;
-    text-align: start;
-    z-index: 11;
-    opacity: 0.8;
-    border-radius: 1px;
-}
-
-/* IE 10+ */
-_:-ms-lang(x),
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu {
-    text-align: left;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li {
-    padding: 13px 71px 13px 21px;
-    cursor: pointer;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li + li {
-    border-top: 1px solid #000000;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li:hover {
-    background-color: #1e1e1e;
-    color: #fbfaff;
-}
-
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_left {
     width: 24px;
     left: 20px;
