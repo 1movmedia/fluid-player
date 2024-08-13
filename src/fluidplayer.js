@@ -833,6 +833,11 @@ const fluidPlayerClass = function () {
         }
 
         // Right container -> Volume container
+        controls.mute = document.createElement('div');
+        controls.mute.className = 'fluid_button fluid_button_volume fluid_control_mute';
+        controls.root.appendChild(controls.mute);
+
+        // Right container -> Volume container
         controls.volumeContainer = document.createElement('div');
         controls.volumeContainer.className = 'fluid_control_volume_container fluid_slider';
         controls.root.appendChild(controls.volumeContainer);
@@ -851,11 +856,6 @@ const fluidPlayerClass = function () {
         controls.volumeCurrentPos = document.createElement('div');
         controls.volumeCurrentPos.className = 'fluid_control_volume_currentpos';
         controls.volumeCurrent.appendChild(controls.volumeCurrentPos);
-
-        // Right container -> Volume container
-        controls.mute = document.createElement('div');
-        controls.mute.className = 'fluid_button fluid_button_volume fluid_control_mute';
-        controls.root.appendChild(controls.mute);
 
         // Right container -> Volume container
         controls.duration = document.createElement('div');
