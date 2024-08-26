@@ -1,4 +1,10 @@
-@import "./suggestedVideos.css";
+@font-face {
+    font-family: fluid-one;
+    src: url('data:font/woff; charset=utf-8; base64,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') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
 
 .fluid_video_wrapper {
     animation: none;
@@ -152,14 +158,14 @@
     word-spacing: normal;
     z-index: auto;
     -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
 }
 
 .fluid_video_wrapper canvas {
     pointer-events: none;
 }
 
-.fluid_video_wrapper,
-.fluid_video_wrapper * {
+.fluid_video_wrapper, .fluid_video_wrapper * {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -192,7 +198,7 @@
 }
 
 .fluid_video_wrapper .vast_video_loading:before {
-    background-image: url("../static/fluid-spinner.svg");
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibGRzLWVjbGlwc2UiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBzdHlsZT0iYmFja2dyb3VuZDowIDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIgogICAgIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTY4LjA5NSA1OS41NzhBMjAgMjAgMCAwMDMxLjE0IDQ0LjI3YTIyIDIwLTY3LjUgMDEzNi45NTUgMTUuMzA4IiBmaWxsPSIjZmZmIj4KICAgICAgICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIGJlZ2luPSIwcyIgY2FsY01vZGU9ImxpbmVhciIgZHVyPSIwLjhzIiBrZXlUaW1lcz0iMDsxIgogICAgICAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiB0eXBlPSJyb3RhdGUiIHZhbHVlcz0iMCA1MCA1MTszNjAgNTAgNTEiLz4KICAgIDwvcGF0aD4KPC9zdmc+Cg==);
     background-position: center, center;
     background-repeat: no-repeat, repeat;
     background-color: rgba(0, 0, 0, 0.2);
@@ -206,10 +212,25 @@
 
 .skip_button {
     position: absolute;
-    bottom: 50px;
+    bottom: 35px;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 13px 21px 13px 21px;
+    background-color: rgba(0, 0, 0, 0.94);
+    padding: 13px 21px 13px 70px;
+    border: 1px solid #000;
+    border-right: 0 none;
+}
+
+.skip_button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 168px;
 }
 
 .skip_button, .skip_button a {
@@ -217,11 +238,20 @@
     text-decoration: none;
     cursor: pointer;
     z-index: 10;
-    font-size: 13px;
+    font-size: 17px;
     font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
     font-weight: normal;
     white-space: nowrap;
     text-align: start;
+    display: block;
+    padding: 0;
+    line-height: 32px;
+    text-align: center;
+    right: 0;
+}
+
+.skip_button a {
+    padding: 5px 10px 5px 70px;
 }
 
 .skip_button a span.skip_button_icon {
@@ -233,7 +263,7 @@
 }
 
 .skip_button a span.skip_button_icon:before {
-    background: url('../static/fluid-icons.svg') no-repeat;
+    background: url(../static/fluid_one_icons.svg) no-repeat;
     position: absolute;
     height: 18px;
     width: 18px;
@@ -254,12 +284,12 @@
 
 .skip_button_disabled {
     cursor: default !important;
-    padding: 13px 21px 13px 21px;
+    padding: 5px 10px 5px 70px;
 }
 
 .close_button {
     position: absolute;
-    background: #000000 url("../static/close-icon.svg") no-repeat scroll center center;
+    background: #000000 url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEwLjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5IDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPgogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K) no-repeat scroll center center;
     height: 16px;
     width: 16px;
     top: 0;
@@ -279,6 +309,7 @@
     /*IE Fix*/
     background-color: white;
     opacity: 0;
+    z-index: 9;
 }
 
 .fluid_ad_playing {
@@ -321,14 +352,11 @@
     line-height: 18px;
 }
 
-.fluid_ad_cta:hover,
-.skip_button:not(.skip_button_disabled):hover {
+.fluid_ad_cta:hover, .skip_button:not(.skip_button_disabled):hover {
     background-color: rgba(0, 0, 0, 1);
 }
 
-.fluid_html_on_pause,
-.fluid_html_on_pause_container,
-.fluid_pseudo_poster {
+.fluid_html_on_pause, .fluid_html_on_pause_container, .fluid_pseudo_poster {
     position: absolute;
     top: 0;
     right: 0;
@@ -341,10 +369,10 @@
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    z-index: 2;
 }
 
-.fluid_html_on_pause_container *,
-.fluid_html_on_pause * {
+.fluid_html_on_pause_container *, .fluid_html_on_pause * {
     pointer-events: auto;
 }
 
@@ -353,24 +381,61 @@
     bottom: 50px;
 }
 
-/*
-.fluid_video_wrapper.mobile .fluid_ad_cta {
-        bottom: 125px;
-}
-*/
+/* .fluid_video_wrapper.mobile .fluid_ad_cta { bottom: 125px; } */
 .fluid_initial_play {
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
     cursor: pointer;
+    z-index: 3;
+    text-shadow: none;
+    background-color: rgba(0,0,0,0.85) !important;
+    ; cursor: pointer;
+}
+
+.fluid_button.fluid_button_play.fluid_control_playpause, .fluid_initial_play_button {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='pnf' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bopacity:0.2;%7D .st1%7Bfill:%23FFFFFF;%7D%0A%3C/style%3E%3Cpath class='st0' d='M468.7,242.1c0,25.4-4.3,49.8-12.2,72.5c-24.2,69.3-82.1,122.9-154.1,140.9c-17.2,4.3-35.2,6.6-53.7,6.6 c-121.5,0-220-98.5-220-220s98.5-220,220-220S468.7,120.6,468.7,242.1z'/%3E%3Cg%3E%3Cpath class='st1' d='M190.4,235.3c0-25.2,0-50.3,0-75.5c0-4.8,1.3-8.9,5.6-11.4c4.5-2.6,8.7-1.5,12.9,1.2 c39.4,25.1,78.8,50.2,118.2,75.3c9.2,5.8,9.1,14.9-0.1,20.8c-39.3,25-78.7,50-118,75.1c-4.2,2.7-8.3,3.9-12.9,1.3 c-4.5-2.5-5.8-6.7-5.8-11.6C190.5,285.4,190.4,260.3,190.4,235.3z M212.7,178.1c0,38.3,0,75.9,0,114.1c30-19.1,59.6-37.9,89.7-57.1 C272.2,216,242.7,197.2,212.7,178.1z'/%3E%3Cpath class='st1' d='M323.6,444.5c-3.5-0.7-6.7-1.9-9.1-4.7c-4.7-5.4-4.6-11.5-2-17.6c3.2-7.7,9.4-11.7,17.5-12.9 c12.1-1.9,24.2-3.8,36.7-5.7c-0.7-0.8-1.2-1.3-1.8-1.8c-20.4-20.4-40.8-40.8-61.3-61.3c-5.6-5.6-7.5-12.1-5-19.7 c3.6-11.1,18.6-15.8,27.5-8.2c5.9,5,11.2,10.8,16.8,16.3c0.6,0.6,0.9,1.3,1.6,1.9c2.4-5.9,6.2-10,12-11.9s11.3-0.9,16.4,2.6 c2.1-5.9,5.9-10.1,11.8-12c5.8-1.9,11.3-0.9,16.4,2.6c1.3-3.5,3.1-6.5,5.9-8.8c7.4-5.9,17.9-5.6,24.3,1.4 c12.3,13.3,24.5,26.7,36.5,40.2c6.8,7.6,10.5,16.8,11.7,27c0.1,0.7,0.3,1.3,0.4,1.9c0,2.8,0,5.7,0,8.5c-0.1,0.7-0.3,1.3-0.4,2 c-1.4,10.8-5.6,20.3-13,28.3c-5.5,5.9-11.3,11.6-17,17.2c-6.9,6.8-15.2,11.3-24.7,13.4c-2.9,0.6-5.8,0.9-8.7,1.4 C385.2,444.5,354.4,444.5,323.6,444.5z M371.4,435.1c13.6,0,27.2,0,40.8,0c11.7,0,22-3.6,30.4-11.7c5.6-5.4,11.3-10.8,16.5-16.6 c15.2-16.6,15.2-40.5,0.2-57.4c-4.5-5.1-9.1-10.1-13.7-15.1c-6.9-7.6-13.8-15.1-20.7-22.7c-3.4-3.7-8.5-4-12.1-0.9 s-3.9,8.3-0.8,12.1c0.5,0.6,1,1.1,1.3,1.8c1,1.6,0.9,3.2,0,4.8c-1,1.6-2.4,2.5-4.2,2.1c-1.3-0.3-2.7-1-3.6-1.9 c-3.1-2.8-5.9-5.9-8.9-8.8c-2.4-2.4-5.3-3.4-8.7-2.4c-6.2,1.7-8.3,9.2-3.9,14.1c3,3.3,6.4,6.4,9.5,9.6c2.2,2.3,2.3,5.1,0.4,7 c-1.9,2-4.7,1.8-7-0.4c-1.3-1.2-2.6-2.6-3.9-3.8c-4.9-4.9-9.7-9.7-14.6-14.6c-3.8-3.8-9.1-3.8-12.6-0.2c-3.4,3.5-3.2,8.7,0.5,12.4 c5.9,5.9,11.8,11.8,17.7,17.7c0.7,0.7,1.3,1.4,1.8,2.2c1,1.7,0.8,3.4-0.3,4.9c-1.1,1.5-2.8,2.3-4.6,1.7c-1.3-0.5-2.6-1.3-3.6-2.3 c-14.9-14.8-29.7-29.7-44.6-44.5c-0.7-0.7-1.4-1.4-2.2-2c-5.2-3.9-12.7-0.8-13.6,5.7c-0.5,3.4,1,5.9,3.3,8.2 c22.9,22.9,45.8,45.8,68.7,68.7c1.6,1.6,2.7,3.3,2,5.6c-0.7,2.3-2.6,3.1-4.7,3.5c-6.3,1-12.6,2-18.9,3c-9.3,1.5-18.6,2.9-27.9,4.5 c-5.2,0.9-8.8,5.2-9.2,10.4c-0.3,3.1,1.3,5.1,4.3,5.5c0.8,0.1,1.6,0.1,2.4,0.1C341.7,435.1,356.5,435.1,371.4,435.1z'/%3E%3Cpath class='st1' d='M317.3,283.2c1.6,0.3,3.3,0.5,4.9,0.9c13.6,3.1,23.7,10.8,29.9,23.4c1.4,2.9,0.7,5.5-1.7,6.8 c-2.4,1.3-5,0.4-6.5-2.5c-2.6-5-5.9-9.3-10.4-12.6c-16-12-39.5-6.6-48.6,11.2c-8.3,16.2-2.3,35.4,13.7,44.1 c0.7,0.4,1.4,0.7,2.1,1.2c2.5,1.6,3.2,4.1,2,6.4s-3.9,3-6.5,1.8c-5.8-2.7-10.7-6.5-14.7-11.4c-5.3-6.4-8.4-13.7-9.4-21.9 c0-0.3-0.2-0.6-0.3-0.9c0-2.7,0-5.4,0-8.1c0.1-0.6,0.3-1.3,0.4-1.9c2.9-16.4,11.9-27.8,27.5-33.7c3.7-1.4,7.8-1.9,11.7-2.8 C313.3,283.2,315.3,283.2,317.3,283.2z'/%3E%3Cg%3E%3Cpath class='st1' d='M247.3,41.4c2,0.2,4,0.5,6,0.7c11,1.1,22,1.8,32.9,3.2c7.8,1,12.6,8.8,11.1,16.5c-1.4,7.2-8.5,12.1-16,10.8 c-43.1-7.1-83.7-0.3-121.2,22.5c-59.8,36.4-91.4,105.3-80.3,174.4c12,74.3,70.4,132,145,143.1c17.4,2.6,34.8,2.3,52.2-0.3 c7.9-1.2,15.2,3.9,16.4,11.4c1.2,7.7-4,14.9-11.9,16c-7.3,1-14.7,1.5-22.1,2.3c-1.7,0.2-3.4,0.6-5.1,0.8c-0.6,0-1.2,0-1.7,0 c-1.6-0.2-3.1-0.5-4.7-0.7c-12.6-1.3-25.3-1.5-37.6-4C103,416.9,32.6,312.3,53,205.3C69.7,118.2,140.2,53,228.4,43.2 c5.4-0.6,10.9-1.2,16.3-1.8C245.6,41.4,246.4,41.4,247.3,41.4z'/%3E%3Cpath class='st1' d='M449.4,239.3c-0.2,2-0.5,4-0.7,6c-1.1,11-1.8,22-3.2,32.9c-1,7.8-8.8,12.6-16.5,11.1 c-7.2-1.4-12.1-8.5-10.8-16c7.1-43.1,0.3-83.7-22.5-121.2c-36.4-59.8-105.3-91.4-174.4-80.3c-74.3,12-132,70.4-143.1,145 c-2.6,17.4-2.3,34.8,0.3,52.2c1.2,7.9-3.9,15.2-11.4,16.4c-7.7,1.2-14.9-4-16-11.9c-1-7.3-1.5-14.7-2.3-22.1 c-0.2-1.7-0.6-3.4-0.8-5.1c0-0.6,0-1.2,0-1.7c0.2-1.6,0.5-3.1,0.7-4.7c1.3-12.6,1.5-25.3,4-37.6C73.9,94.9,178.5,24.5,285.5,45 c87.1,16.7,152.3,87.1,162.1,175.3c0.6,5.4,1.2,10.9,1.8,16.3C449.4,237.5,449.4,238.4,449.4,239.3z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 120px;
+    opacity: .85;
+}
+
+.fluid_initial_play {
+    opacity: .85;
 }
 
 .fluid_initial_play_button {
-    margin-top: 15px;
-    margin-left: 23px;
-    border-style: solid;
-    border-width: 15px 0 15px 21px;
-    border-color: transparent transparent transparent #ffffff;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.fluid_initial_play:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    top: 50%;
+}
+
+.fluid_initial_play:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    background-color: #000;
+    left: 50%;
+    top: 0;
 }
 
 .fluid_initial_pause_button {
@@ -401,14 +466,14 @@
     display: inline-block;
     position: absolute;
     left: 32px;
-    height: 24px;
+    height: 32px;
     font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
-    font-size: 13px;
+    font-size: 18px;
     font-weight: normal;
     font-style: normal;
     text-align: left;
     text-decoration: none;
-    line-height: 21px;
+    line-height: 36px;
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_fluid_control_duration.cardboard_time {
@@ -452,10 +517,14 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ad000000', GradientType=0); /* IE6-9 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ad000000', GradientType=0);
+    /* IE6-9 */
     height: 100%;
     width: 100%;
     z-index: 0;
@@ -482,7 +551,7 @@
     height: 24px;
     width: 24px;
     position: relative;
-    background: url(../static/fluid-icons.svg) no-repeat;
+    background: url(../static/fluid_one_icons.svg) no-repeat;
     opacity: 0.8;
 }
 
@@ -492,9 +561,12 @@
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_up {
     background-position: -336px -55px;
-    -webkit-transform: rotate(270deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(270deg); /* IE 9 */
-    transform: rotate(270deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(270deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(270deg);
+    /* IE 9 */
+    transform: rotate(270deg);
+    /* Firefox 16+, IE 10+, Opera */
     display: block;
     left: calc(50% - 12px);
     top: 0;
@@ -503,9 +575,12 @@
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_left {
     background-position: -336px -55px;
-    -webkit-transform: rotate(180deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(1890deg); /* IE 9 */
-    transform: rotate(180deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(180deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(1890deg);
+    /* IE 9 */
+    transform: rotate(180deg);
+    /* Firefox 16+, IE 10+, Opera */
     display: block;
     left: 0;
     top: 24px;
@@ -514,9 +589,12 @@
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_right {
     background-position: -336px -55px;
-    -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg); /* IE 9 */
-    transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(0deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    transform: rotate(0deg);
+    /* Firefox 16+, IE 10+, Opera */
     display: block;
     right: 0;
     top: 24px;
@@ -525,9 +603,12 @@
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_down {
     background-position: -336px -55px;
-    -webkit-transform: rotate(90deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(90deg); /* IE 9 */
-    transform: rotate(90deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(90deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(90deg);
+    /* IE 9 */
+    transform: rotate(90deg);
+    /* Firefox 16+, IE 10+, Opera */
     display: block;
     left: calc(50% - 12px);
     top: 48px;
@@ -537,9 +618,12 @@
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_zoomdefault {
     background-position: -336px -17px;
     top: 72px;
-    -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg); /* IE 9 */
-    transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(0deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    transform: rotate(0deg);
+    /* Firefox 16+, IE 10+, Opera */
     position: absolute;
     left: calc(50% - 12px);
 }
@@ -547,9 +631,12 @@
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_zoomin {
     background-position: -305px -55px;
     top: 72px;
-    -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg); /* IE 9 */
-    transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(0deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    transform: rotate(0deg);
+    /* Firefox 16+, IE 10+, Opera */
     position: absolute;
     right: 0;
 }
@@ -557,9 +644,12 @@
 .fluid_video_wrapper.fluid_player_layout_default .fluid_vr_container .fluid_vr_joystick_panel .fluid_vr_joystick_zoomout {
     background-position: -305px -17px;
     top: 72px;
-    -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg); /* IE 9 */
-    transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera  */
+    -webkit-transform: rotate(0deg);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    transform: rotate(0deg);
+    /* Firefox 16+, IE 10+, Opera */
     position: absolute;
     left: 0;
 }
@@ -575,15 +665,18 @@
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container {
     color: white;
-    position: absolute;
+    position: static;
     bottom: 0;
     left: 0;
     right: 0;
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ad000000', GradientType=0); /* IE6-9 */
-    height: 53px;
+    /*! background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); */
+    /* FF3.6-15 */
+    /*! background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); */
+    /* Chrome10-25,Safari5.1-6 */
+    /*! background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%); */
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*! filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ad000000', GradientType=0); */
+    /* IE6-9 */
     z-index: 1;
 }
 
@@ -630,17 +723,10 @@
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fade_out {
-    visibility: hidden;
     opacity: 0;
-    -webkit-transition: visibility 0.5s, opacity 0.5s; /* Safari */
-    transition: visibility 0.5s, opacity 0.5s;
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fade_in {
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: visibility 0.5s, opacity 0.5s; /* Safari */
-    transition: visibility 0.5s, opacity 0.5s;
 }
 
 .fluid_video_wrapper.fluid_player_layout_default.pseudo_fullscreen {
@@ -666,144 +752,113 @@
     position: absolute;
 }
 
+.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: start;
+    z-index: 11;
+    opacity: 0.8;
+    border-radius: 1px;
+}
+
+/* IE 10+ */
+_:-ms-lang(x), .fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu {
+    text-align: left;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li {
+    padding: 13px 71px 13px 21px;
+    cursor: pointer;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li + li {
+    border-top: 1px solid #000000;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_context_menu ul li:hover {
+    background-color: #1e1e1e;
+    color: #fbfaff;
+}
+
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_left {
-    width: 24px;
-    left: 20px;
+    /*! width: 24px; */
+    /*! left: 20px; */
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container.skip_controls .fluid_controls_left {
-    width: 80px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button {
-    width: 24px;
-    height: 24px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    /*! width: 140px; */
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right {
     left: 60px;
-    right: 20px;
+    right: 0px;
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container.skip_controls .fluid_controls_right {
-    left: 110px;
+    left: 0px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_left,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container.skip_controls .fluid_controls_right:before {
+    font-family: fluid-one;
+    ; content: "\e90b" ;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    margin: 6px 10px;
+    text-align: center;
+    line-height: 40px;
+    opacity: 0.5
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_left, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right {
+    /*! position: absolute; */
+    /*! bottom: 13px; */
+}
+
+.fluid_button_volume:hover ~.fluid_control_volume_container, .fluid_control_volume_container:hover {
+    opacity: 0.7
+}
+
+.fluid_button_volume:hover ~ .fluid_control_volume_container, .fluid_control_volume_container:hover {
+    display: block;
+}
+
+.fluid_control_volume_container {
+    display: none;
     position: absolute;
-    height: 24px;
-    top: 23px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container {
-    height: 14px;
-    position: absolute;
-    left: 13px;
-    right: 13px;
-    z-index: 1;
-    top: 8px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress {
-    position: absolute;
-    top: 5px;
-    width: 100%;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_buffered {
-    position: absolute;
-    top: 5px;
-    width: 0;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.5);
-    z-index: -1;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress .fluid_controls_currentprogress {
-    position: absolute;
-    height: 3px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container:hover .fluid_controls_progress,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container:hover .fluid_controls_buffered,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container:hover .fluid_controls_ad_markers_holder {
-    margin-top: -1px;
-    height: 5px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container:hover .fluid_controls_progress .fluid_controls_currentprogress {
-    height: 5px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_timeline_preview_container {
-    border: 1px solid #262626;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_timeline_preview_container, .fluid_timeline_preview_container_shadow {
-    bottom: 14px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container.fluid_slider .fluid_controls_progress .fluid_controls_currentprogress .fluid_controls_currentpos {
-    background-color: white;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container.fluid_slider .fluid_controls_progress .fluid_controls_currentprogress .fluid_controls_currentpos,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container.fluid_ad_slider .fluid_controls_progress .fluid_controls_currentprogress .fluid_controls_currentpos {
+    left: 50px;
+    height: 26px;
+    width: 52px;
+    left: 44px;
+    top: 4px;
+    z-index: 2;
     opacity: 0;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container.fluid_slider:hover .fluid_controls_progress .fluid_controls_currentprogress .fluid_controls_currentpos {
-    opacity: 1;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container.fluid_slider .fluid_controls_progress .fluid_controls_currentprogress .fluid_controls_currentpos {
-    -webkit-transition: opacity 0.3s; /* Safari */
-    transition: opacity 0.3s;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_ad_markers_holder {
-    position: absolute;
-    top: 5px;
-    width: 100%;
-    height: 3px;
-    z-index: 2;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_ad_marker {
-    position: absolute;
-    background-color: #FFCC00;
-    height: 100%;
-    width: 6px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container {
-    height: 24px;
-    width: 56px;
-    left: 25px;
-    top: -1px;
-    z-index: 2;
-    opacity: 0.8;
     -webkit-transition: opacity 0.3s ease-in-out;
     -moz-transition: opacity 0.3s ease-in-out;
     -ms-transition: opacity 0.3s ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
-    display: none;
+    background-color: rgba(0,0,0,0.5);
+    padding: 7px 15px;
+    border-radius: 8px;
+    box-shadow: -40px 0 0 rgba(0,0,0,0.5)
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container:hover {
-    opacity: 1;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container .fluid_control_volume {
+.fluid_control_volume_container .fluid_control_volume {
     position: relative;
     height: 3px;
     width: 100%;
@@ -812,13 +867,13 @@
     z-index: 3;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container .fluid_control_volume .fluid_control_currentvolume {
+.fluid_control_volume .fluid_control_currentvolume {
     float: left;
     background-color: white;
     height: 3px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container .fluid_control_volume .fluid_control_currentvolume .fluid_control_volume_currentpos {
+.fluid_control_volume .fluid_control_currentvolume .fluid_control_volume_currentpos {
     background-color: white;
 }
 
@@ -827,8 +882,7 @@
     z-index: 3;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container .fluid_control_volume .fluid_control_currentvolume .fluid_control_volume_currentpos,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress .fluid_controls_currentpos {
+.fluid_control_volume_container .fluid_control_volume .fluid_control_currentvolume .fluid_control_volume_currentpos, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress .fluid_controls_currentpos {
     width: 11px;
     height: 11px;
     position: absolute;
@@ -837,35 +891,32 @@
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_progress_container .fluid_controls_progress .fluid_controls_currentpos {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     position: absolute;
-    top: -4px;
-    border-radius: 6px;
+    top: -2px;
+    /*! border-radius: 6px; */
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container.no_volume_bar .fluid_controls_right .fluid_control_volume_container {
     display: none;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_slider {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button {
     cursor: pointer;
+    /*! padding: 10px; */
+    /*! background: red; */
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container div div {
     display: block;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_fullscreen,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_fullscreen_exit,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_mini_player {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_fullscreen, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_fullscreen_exit, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_mini_player {
     float: right;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_cardboard {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_cardboard {
     font-size: 13px;
     height: 24px;
     line-height: 24px;
@@ -873,23 +924,25 @@
     cursor: pointer;
     position: relative;
     text-align: right;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
     user-select: none;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_title,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_title {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_title, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_title {
     width: 80px;
     overflow: hidden;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_video_playback_rates {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_video_playback_rates {
     position: absolute;
     bottom: 25px;
     right: 3px;
@@ -907,72 +960,20 @@
     padding: 0.5em;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list .fluid_subtitle_list_item,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list .fluid_video_source_list_item {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list .fluid_subtitle_list_item, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list .fluid_video_source_list_item {
     padding: 12px 34px 12px 24px;
     line-height: 15px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list .fluid_video_source_list_item:hover,
-.fluid_video_playback_rates_item:hover,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list .fluid_subtitle_list_item:hover {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list .fluid_video_source_list_item:hover, .fluid_video_playback_rates_item:hover, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list .fluid_subtitle_list_item:hover {
     background-color: #3a3a3a;
 }
 
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_volume,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_mute {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player:before {
+    font-family: fluid-one;
     position: absolute;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_volume,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button.fluid_button_mute {
-    left: -10px;
-}
-
-/* Button Icons */
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_volume,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mute,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen_exit,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player {
-    display: inline-block;
-    text-align: left;
-    height: 24px;
-    width: 24px;
-    position: relative;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_volume:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mute:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen_exit:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player:before{
-    background: url('../static/fluid-icons.svg') no-repeat;
-    position: absolute;
-    height: 24px;
-    width: 24px;
+    height: 2px;
+    width: 32px;
     top: 1px;
     left: 5px;
     content: "";
@@ -982,30 +983,59 @@
     -ms-transition: opacity 0.3s ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play:before {
-    background-position: -15px -19px;
+    font-size: 33px;
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause:before {
-    background-position: -15px -57px;
+    content: "\e908";
+    font-size: 80px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_volume:before {
-    background-position: -52px -19px;
+.fluid_button_volume, .fluid_button_mute {
+    display: block;
+    position: absolute;
+    background-color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    top: 4px;
+    left: 4px;
+    background-image: url("data:image/svg+xml,%3Csvg id='1371af05-6a29-4b8e-8efc-3f2cb4689600' data-name='volume' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.%5C39 ba6b3d9-90e3-40ec-9e04-2bd4ae765888%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Evolume%3C/title%3E%3Cpath class='9ba6b3d9-90e3-40ec-9e04-2bd4ae765888' d='M317.86,256q0,115.22,0,230.41a36.31,36.31,0,0,1-.42,7.75c-2,9.23-11.95,14.33-21.15,10.69C231.35,479.12,175,441,129.27,388c-4.3-5-8.5-7.31-15.27-7.12-18.49.51-37,.22-55.52.16-32.06-.1-53.2-21.35-53.21-53.45q0-72.65,0-145.3C5.34,157.12,21.54,137,45.65,132a69.73,69.73,0,0,1,13.41-1c19.89-.1,39.79.06,59.68-.18a10.35,10.35,0,0,0,7-3.11C172,73.38,228.8,34,294.88,7.68c12.69-5.07,23,1.87,23,15.83Q317.89,139.74,317.86,256ZM286.35,45.82c-1.6.59-2.89,1-4.1,1.54A380,380,0,0,0,149.54,148.18a15.48,15.48,0,0,0-3.32,9.19q-.28,98.61,0,197.2a15.45,15.45,0,0,0,3.32,9.19A378,378,0,0,0,257.27,452c9.32,5.14,19,9.67,29.08,14.79Zm-172,116.51c-19.59,0-38.58-.05-57.57,0-12.6,0-20.26,7.75-20.27,20.46q-.06,73.11,0,146.23c0,12.94,7.68,20.53,20.7,20.57,17.46.06,34.92,0,52.38,0,1.5,0,3-.2,4.76-.32Z'/%3E%3Cpath class='9ba6b3d9-90e3-40ec-9e04-2bd4ae765888' d='M506,250.28c-2.05,69.28-26.19,121.87-74.82,162.82-8,6.78-17.6,6.44-23.52-.53-6.13-7.24-4.78-16.53,3.64-23.59,32.5-27.26,53.44-61.54,60.18-103.45,10.1-62.81-9.25-115.81-55.93-158.91-1.78-1.64-3.72-3.11-5.53-4.71-7.17-6.35-8.12-15.82-2.28-22.61,5.62-6.56,15.14-7.25,22.32-1.36,36.26,29.73,60.05,67.38,70.24,113.16C503.53,225.86,504.65,241.1,506,250.28Z'/%3E%3Cpath class='9ba6b3d9-90e3-40ec-9e04-2bd4ae765888' d='M443,260.57c-2.11,41.68-19,76.88-51.64,104.31-7.44,6.25-16.87,5.71-22.7-1s-4.86-16.34,2.61-23c.78-.69,1.58-1.34,2.37-2,50.69-43.37,50.5-122.75-.19-166.25a28.47,28.47,0,0,1-8.09-12c-2-6,1.66-12.6,7.15-15.8,5.86-3.42,12.61-2.85,18.33,1.81a139.52,139.52,0,0,1,42,56.93C440.11,221.6,443.26,240.39,443,260.57Z'/%3E%3C/svg%3E");
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    cursor: pointer;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mute:before {
-    background-position: -52px -57px;
+.fluid_button_mute {
+    background-image: url("data:image/svg+xml,%3Csvg id='3c8152d6-d56e-4b22-9c34-4e8ccef9d196' data-name='mute' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.%5C34 5bfbe14-4bcf-4b6c-8c11-f43ffc486cee%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Emute%3C/title%3E%3Cpath class='45bfbe14-4bcf-4b6c-8c11-f43ffc486cee' d='M317.86,256q0,115.22,0,230.41a36.31,36.31,0,0,1-.42,7.75c-2,9.23-11.95,14.33-21.15,10.69C231.35,479.12,175,441,129.27,388c-4.3-5-8.5-7.31-15.27-7.12-18.49.51-37,.22-55.52.16-32.06-.1-53.2-21.35-53.21-53.45q0-72.65,0-145.3C5.34,157.12,21.54,137,45.65,132a69.73,69.73,0,0,1,13.41-1c19.89-.1,39.79.06,59.68-.18a10.35,10.35,0,0,0,7-3.11C172,73.38,228.8,34,294.88,7.68c12.69-5.07,23,1.87,23,15.83Q317.89,139.74,317.86,256ZM286.35,45.82c-1.6.59-2.89,1-4.1,1.54A380,380,0,0,0,149.54,148.18a15.48,15.48,0,0,0-3.32,9.19q-.28,98.61,0,197.2a15.45,15.45,0,0,0,3.32,9.19A378,378,0,0,0,257.27,452c9.32,5.14,19,9.67,29.08,14.79Zm-172,116.51c-19.59,0-38.58-.05-57.57,0-12.6,0-20.26,7.75-20.27,20.46q-.06,73.11,0,146.23c0,12.94,7.68,20.53,20.7,20.57,17.46.06,34.92,0,52.38,0,1.5,0,3-.2,4.76-.32Z'/%3E%3Cpath class='45bfbe14-4bcf-4b6c-8c11-f43ffc486cee' d='M443,260.57c-2.11,41.68-19,76.88-51.64,104.31-7.44,6.25-16.87,5.71-22.7-1s-4.86-16.34,2.61-23c.78-.69,1.58-1.34,2.37-2,50.69-43.37,50.5-122.75-.19-166.25a28.47,28.47,0,0,1-8.09-12c-2-6,1.66-12.6,7.15-15.8,5.86-3.42,12.61-2.85,18.33,1.81a139.52,139.52,0,0,1,42,56.93C440.11,221.6,443.26,240.39,443,260.57Z'/%3E%3Cpath class='45bfbe14-4bcf-4b6c-8c11-f43ffc486cee' d='M411.81,261.57c2.11,41.68,19,76.88,51.64,104.31,7.44,6.25,16.87,5.71,22.7-1s4.86-16.34-2.61-23c-.78-.69-1.58-1.34-2.37-2-50.69-43.37-50.5-122.75.19-166.25a28.47,28.47,0,0,0,8.09-12c2-6-1.66-12.6-7.15-15.8-5.86-3.42-12.61-2.85-18.33,1.81a139.52,139.52,0,0,0-42,56.93C414.7,222.6,411.55,241.39,411.81,261.57Z'/%3E%3C/svg%3E");
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen:before {
-    background-position: -88px -19px;
+.fluid_button_fullscreen, .fluid_button_fullscreen_exit {
+    display: block;
+    position: absolute;
+    background-color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    top: 4px;
+    right: 4px;
+    background-image: url("data:image/svg+xml,%3Csvg id='488af22f-a6bd-4e02-8f9c-85da8bd1d066' data-name='fullscreen' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.da8c4f4d-e109-4188-9978-9e7f0cb00447%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Efullscreen%3C/title%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M29.25,483v-8.57q0-43.77,0-87.55c0-4.36.21-8.81-.48-13.08-1-6.38-5.25-9.82-11.78-9.52S6.83,368.35,6.1,374.83A39.86,39.86,0,0,0,6,379.2q0,56.18,0,112.35c0,11.27,3.63,14.91,14.76,14.92q56.54.06,113.08,0a35.39,35.39,0,0,0,4.37-.15c5.8-.74,9.31-4.08,10-9.83.76-6-1.71-10.58-7.62-12.49a28.77,28.77,0,0,0-8.61-1Q85,483,37.9,483Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M29.25,29.82h9.56c31.6,0,63.2.05,94.79,0,9.54,0,14.53-4.13,14.67-11.54s-4.8-11.68-14.22-11.69q-56.88-.06-113.75,0C10.16,6.56,6.05,10.22,6,19.7q-.15,58,0,115.94c0,8.33,4.35,13.1,11.32,13.17S28.92,144.16,29.18,136c.25-8,.07-16,.07-24.06C29.26,84.94,29.25,58,29.25,29.82Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M482.73,29.82v9.81q0,47,0,94.07c0,10,4.16,15.14,11.79,15.1S506,143.66,506,133.52Q506,77.73,506,22c0-12.11-3.41-15.41-15.71-15.42q-39,0-78,0c-12.15,0-24.31-.12-36.46.07-7.38.11-11.83,4.33-12.09,10.85s3.83,11.24,10.95,12.17a56.91,56.91,0,0,0,7.28.19H482.73Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M482.73,483.2c-34.55,0-67.83,0-101.11,0a40.26,40.26,0,0,0-9.39.77c-6,1.48-8.89,5.76-8.43,11.88s4.05,9.66,10.16,10.46a39.4,39.4,0,0,0,5.1.14q55.79,0,111.57,0c12,0,15.36-3.44,15.38-15.76q0-46.67,0-93.34c0-7.29.17-14.59-.13-21.87-.29-6.79-4.69-11.07-10.93-11.28S484,367.9,483,374.56a48.86,48.86,0,0,0-.26,7.27q0,46.31,0,92.61Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M176.64,165c-1.47-2.09-3.55-6.2-6.64-9.31q-38.76-39.13-77.85-77.94A29,29,0,0,0,86,72.66c-6.89-3.83-16.35.44-16.47,8.15C69.51,85,72,90.27,75,93.37c26.21,26.75,52.8,53.12,79.3,79.58a25,25,0,0,0,5,4.24C166.89,181.61,176.4,176.15,176.64,165Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M346.07,332.61c-3.48,3.09-7.44,5.31-9.45,8.69-2.93,4.93-.88,9.85,3.09,13.82q41,41,82,82c6.05,6,13.06,6.24,18,1.05,4.66-4.92,4.3-11.75-1.41-17.48q-40.92-41.1-82.08-82C353.81,336.33,350.24,335.08,346.07,332.61Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M443.05,80.59c-3.55-3.66-6.24-7.75-10-10-4.8-2.86-9.2-.12-12.91,3.6q-40.92,41-81.87,81.95c-6,6.06-6.22,11.88-1,17.19s11.45,5.31,17.3-.51q41.32-41.09,82.39-82.45C439.19,88.09,440.44,84.83,443.05,80.59Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M178.83,349c-.51-2.15-.68-3.11-1-4-3-9.27-12.72-11.24-20.17-3.82q-40.78,40.59-81.42,81.35a32.79,32.79,0,0,0-2.51,2.63c-4,5-4.32,10.29-.09,15.23,4,4.71,9.13,5.44,14.36,2.16a49.83,49.83,0,0,0,9.09-7.2q38.55-39.22,76.85-78.69C176.21,354.31,177.52,351.1,178.83,349Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M29.25,483H37.9q47.05,0,94.11,0a28.77,28.77,0,0,1,8.61,1c5.91,1.91,8.38,6.47,7.62,12.49-.73,5.75-4.24,9.09-10,9.83a35.39,35.39,0,0,1-4.37.15q-56.55,0-113.08,0C9.62,506.46,6,502.82,6,491.55Q5.92,435.38,6,379.2a39.86,39.86,0,0,1,.12-4.37c.73-6.48,4.36-10.24,10.88-10.54s10.74,3.14,11.78,9.52c.69,4.27.47,8.72.48,13.08q0,43.77,0,87.55Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M29.25,29.82c0,28.17,0,55.12,0,82.08,0,8,.18,16-.07,24.06-.26,8.2-4.82,12.92-11.84,12.85S6,144,6,135.64q-.13-58,0-115.94c0-9.48,4.14-13.14,14.28-13.15q56.88-.06,113.75,0c9.42,0,14.36,4.18,14.22,11.69s-5.13,11.52-14.67,11.54c-31.59.09-63.19,0-94.79,0Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M482.73,29.82H382a56.91,56.91,0,0,1-7.28-.19c-7.12-.93-11.22-5.58-10.95-12.17S368.43,6.71,375.81,6.6c12.15-.19,24.31-.07,36.46-.07q39,0,78,0C502.59,6.55,506,9.85,506,22q.06,55.79,0,111.56c0,10.14-3.91,15.25-11.45,15.28s-11.78-5.14-11.79-15.1q-.09-47,0-94.07Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M482.73,483.2v-8.76q0-46.31,0-92.61a48.86,48.86,0,0,1,.26-7.27c1-6.66,5.62-10.55,11.95-10.33s10.64,4.49,10.93,11.28c.3,7.28.13,14.58.13,21.87q0,46.68,0,93.34c0,12.32-3.36,15.75-15.38,15.76q-55.78,0-111.57,0a39.4,39.4,0,0,1-5.1-.14c-6.11-.8-9.71-4.31-10.16-10.46s2.41-10.4,8.43-11.88a40.26,40.26,0,0,1,9.39-.77C414.9,483.18,448.18,483.2,482.73,483.2Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M176.64,165c-.24,11.14-9.75,16.6-17.38,12.18a25,25,0,0,1-5-4.24c-26.5-26.46-53.09-52.83-79.3-79.58-3-3.1-5.48-8.35-5.42-12.56.12-7.71,9.58-12,16.47-8.15a29,29,0,0,1,6.11,5.1q39,38.89,77.85,77.94C173.09,158.81,175.17,162.92,176.64,165Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M346.07,332.61c4.17,2.47,7.74,3.72,10.17,6.13q41.2,40.81,82.08,82c5.71,5.73,6.07,12.56,1.41,17.48-4.93,5.19-11.94,5-18-1.05q-41.1-40.92-82-82c-4-4-6-8.89-3.09-13.82C338.63,337.92,342.59,335.7,346.07,332.61Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M443.05,80.59c-2.61,4.24-3.86,7.5-6.11,9.77q-41.06,41.37-82.39,82.45c-5.85,5.82-12.13,5.78-17.3.51s-5-11.13,1-17.19q40.88-41,81.87-81.95c3.71-3.72,8.11-6.46,12.91-3.6C436.81,72.84,439.5,76.93,443.05,80.59Z'/%3E%3Cpath class='da8c4f4d-e109-4188-9978-9e7f0cb00447' d='M178.83,349c-1.31,2.11-2.62,5.32-4.86,7.63q-38.28,39.5-76.85,78.69a49.83,49.83,0,0,1-9.09,7.2c-5.23,3.28-10.34,2.55-14.36-2.16-4.23-4.94-3.91-10.19.09-15.23a32.79,32.79,0,0,1,2.51-2.63q40.7-40.68,81.42-81.35c7.45-7.42,17.22-5.45,20.17,3.82C178.15,345.88,178.32,346.84,178.83,349Z'/%3E%3C/svg%3E");
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    cursor: pointer;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen_exit:before {
-    background-position: -88px -57px;
+.fluid_button_fullscreen_exit {
+    background-image: url("data:image/svg+xml,%3Csvg id='0486c55b-0d35-49e0-bc75-74cb594585aa' data-name='fullscreenexit' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Efullscreenexit%3C/title%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M155.54,360.11v96.12c0,4.36-.21,8.81.48,13.08,1,6.38,5.25,9.82,11.78,9.52s10.16-4.07,10.89-10.55a39.79,39.79,0,0,0,.1-4.37V351.56c0-11.27-3.63-14.91-14.76-14.92q-56.53-.06-113.08,0a35.39,35.39,0,0,0-4.37.15c-5.8.74-9.31,4.08-10,9.83-.76,6,1.71,10.58,7.62,12.49a28.44,28.44,0,0,0,8.61,1H155.54Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M153.31,155.42h-9.56q-47.4,0-94.79,0c-9.53,0-14.53,4.13-14.67,11.54s4.8,11.68,14.22,11.69q56.88.06,113.75,0c10.14,0,14.25-3.63,14.3-13.11q.15-58,0-115.94c0-8.33-4.35-13.1-11.32-13.17s-11.6,4.65-11.86,12.81c-.25,8-.07,16-.07,24.06C153.3,100.3,153.31,127.24,153.31,155.42Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M356.85,153.92V50c0-10-4.16-15.14-11.79-15.1s-11.48,5.14-11.48,15.28V161.74c0,12.11,3.41,15.41,15.71,15.42h78c12.15,0,24.31.12,36.46-.07,7.38-.11,11.83-4.33,12.09-10.85S472,155,464.89,154.07a57.06,57.06,0,0,0-7.28-.19H356.85Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M358.56,355.92H459.67a40.49,40.49,0,0,0,9.39-.77c6-1.48,8.89-5.76,8.43-11.88s-4.05-9.66-10.16-10.46a37.69,37.69,0,0,0-5.1-.14H350.66c-12,0-15.36,3.44-15.38,15.76v93.34c0,7.29-.17,14.59.13,21.87.29,6.79,4.69,11.07,10.93,11.28s11-3.7,12-10.36a47.78,47.78,0,0,0,.26-7.27V355.92Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M5.93,20.24c1.47,2.09,3.55,6.2,6.63,9.31q38.76,39.14,77.85,77.94a28.84,28.84,0,0,0,6.15,5.09c6.89,3.83,16.35-.44,16.48-8.15,0-4.19-2.48-9.46-5.48-12.56-26.2-26.75-52.8-53.12-79.3-79.58a25.08,25.08,0,0,0-5-4.24C15.68,3.63,6.17,9.09,5.93,20.24Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M495.22,506.51c3.48-3.09,7.44-5.31,9.45-8.69,2.93-4.93.88-9.85-3.09-13.82q-41-41-82-82c-6.05-6-13.06-6.24-18-1.05-4.66,4.92-4.3,11.75,1.41,17.48q40.92,41.1,82.08,82C487.48,502.79,491.05,504,495.22,506.51Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M396.53,103.15c3.55,3.66,6.24,7.75,10,10,4.8,2.86,9.2.12,12.91-3.6q40.92-41,81.87-81.95c6-6.06,6.22-11.88,1-17.19s-11.45-5.31-17.3.51Q443.68,52,402.62,93.37C400.39,95.65,399.14,98.91,396.53,103.15Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M6,494.11c.51,2.15.68,3.11,1,4,3,9.27,12.72,11.24,20.17,3.82q40.79-40.59,81.42-81.35a32.87,32.87,0,0,0,2.51-2.63c4-5,4.32-10.29.09-15.23-4-4.71-9.13-5.44-14.36-2.16a50.17,50.17,0,0,0-9.09,7.2Q49.15,447,10.85,486.45C8.58,488.8,7.27,492,6,494.11Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M155.54,360.11H52.78a28.44,28.44,0,0,1-8.61-1c-5.91-1.91-8.38-6.47-7.62-12.49.73-5.75,4.24-9.09,10-9.83a35.39,35.39,0,0,1,4.37-.15H164c11.17,0,14.79,3.65,14.79,14.92q.08,56.18,0,112.35a39.79,39.79,0,0,1-.12,4.37c-.73,6.48-4.36,10.24-10.88,10.54s-10.74-3.14-11.78-9.52c-.69-4.27-.47-8.72-.48-13.08V360.11Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M153.31,155.42V73.34c0-8-.18-16,.07-24.06s4.82-12.92,11.84-12.85,11.34,4.81,11.34,13.17q.13,58,0,115.94c0,9.48-4.13,13.14-14.27,13.15q-56.89.06-113.75,0c-9.42,0-14.36-4.18-14.23-11.69S39.45,155.48,49,155.46c31.59-.09,63.2,0,94.79,0Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M356.85,153.92H457.58a57.06,57.06,0,0,1,7.28.19c7.12.93,11.22,5.58,10.95,12.17s-4.66,10.75-12,10.86c-12.15.19-24.31.07-36.46.07h-78c-12.32,0-15.73-3.32-15.73-15.47q-.06-55.79,0-111.56c0-10.14,3.91-15.25,11.45-15.28S356.81,40,356.82,50q.09,47,0,94.07Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M358.56,355.92V457.29a47.78,47.78,0,0,1-.26,7.27c-1,6.66-5.62,10.55-11.95,10.33s-10.64-4.49-10.93-11.28c-.3-7.28-.13-14.58-.13-21.87V348.4c0-12.32,3.36-15.75,15.38-15.76H462.24a37.69,37.69,0,0,1,5.1.14c6.11.8,9.71,4.31,10.16,10.46s-2.41,10.4-8.43,11.88a40.49,40.49,0,0,1-9.39.77C426.39,355.94,393.11,355.92,358.56,355.92Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M5.93,20.24C6.17,9.1,15.68,3.64,23.31,8.06a25.65,25.65,0,0,1,5,4.24c26.5,26.46,53.09,52.83,79.3,79.58,3,3.1,5.48,8.35,5.42,12.56-.12,7.71-9.58,12-16.47,8.15a28.47,28.47,0,0,1-6.11-5.1q-39-38.88-77.86-77.94C9.48,26.43,7.4,22.32,5.93,20.24Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M495.22,506.51c-4.17-2.47-7.74-3.72-10.17-6.13q-41.19-40.81-82.08-82c-5.71-5.73-6.07-12.56-1.41-17.48,4.93-5.19,11.94-5,18,1.05q41.1,40.92,82,82c4,4,6,8.89,3.09,13.82C502.66,501.2,498.7,503.42,495.22,506.51Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M396.53,103.15c2.61-4.24,3.86-7.5,6.11-9.77Q443.7,52,485,10.93c5.85-5.82,12.13-5.78,17.3-.51s5,11.13-1,17.19q-40.87,41-81.87,82c-3.71,3.72-8.11,6.46-12.91,3.6C402.77,110.9,400.08,106.81,396.53,103.15Z'/%3E%3Cpath class='f2a8374d-d0d0-4e1e-bb2b-8c4f00e9196c' d='M6,494.11c1.31-2.11,2.62-5.32,4.86-7.63Q49.1,447,87.67,407.79a50.17,50.17,0,0,1,9.09-7.2c5.23-3.28,10.34-2.55,14.36,2.16,4.23,4.94,3.91,10.19-.09,15.23a32.87,32.87,0,0,1-2.51,2.63Q67.83,461.29,27.1,502c-7.45,7.42-17.22,5.45-20.17-3.82C6.64,497.23,6.47,496.27,6,494.11Z'/%3E%3C/svg%3E");
+}
+
+.fluid_button_fullscreen:hover, .fluid_button_mute:hover, .fluid_button_volume:hover {
+    opacity: 0.8;
+    background-color: rgba(0,0,0,0.4)
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source:before {
@@ -1020,10 +1050,6 @@
     background-position: -194px -18px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre:before {
-    background-position: -195px -56px;
-}
-
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles:before {
     background-position: -269px -19px;
 }
@@ -1033,46 +1059,136 @@
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back:before {
-    background: url('../static/skip-backward.svg') no-repeat;
-    background-position: -2px -2px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg id='742634df-5098-404a-96b7-66dbee1a3a10' data-name='skip10' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.%5C32 1be5386-0d30-45f4-a119-dee6434bf676%7Bfill:%23fbfbfb;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Eskip10%3C/title%3E%3Cpath class='21be5386-0d30-45f4-a119-dee6434bf676' d='M339.6,100H137.78a6.34,6.34,0,0,1-3.17-11.84l25.23-14.57a6.34,6.34,0,0,0,2.33-8.66L144.54,34.4a6.34,6.34,0,0,0-8.66-2.33L19.72,99.14a6.43,6.43,0,0,1-3.17.85h-3a6.34,6.34,0,0,0-6.34,6.34h0l-1.49.86,1.49,2.59v28.35l-1.49,2.59,1.49.86h0a6.34,6.34,0,0,0,6.34,6.34h3a6.33,6.33,0,0,1,3.17.85l116.16,67.07a6.34,6.34,0,0,0,8.66-2.33L162.17,183a6.35,6.35,0,0,0-2.33-8.67l-25.23-14.56a6.34,6.34,0,0,1,3.17-11.84H451.49a6.34,6.34,0,0,1,6.34,6.34V426a6.34,6.34,0,0,1-6.34,6.34H179.77a6.34,6.34,0,0,0-6.34,6.35v35.25a6.34,6.34,0,0,0,6.34,6.34H499.42a6.34,6.34,0,0,0,6.35-6.34V106.33a6.34,6.34,0,0,0-6.35-6.34Z'/%3E%3Cpath class='21be5386-0d30-45f4-a119-dee6434bf676' d='M284.12,211.43V363H246.3V281.74q0-17.61-.85-21.16a7.87,7.87,0,0,0-4.63-5.38q-3.8-1.83-16.9-1.83h-3.74V235.7q27.42-5.89,41.66-24.27Z'/%3E%3Cpath class='21be5386-0d30-45f4-a119-dee6434bf676' d='M388,262.73v50.56q0,17.22-1.88,25.09a34.66,34.66,0,0,1-7.77,14.7,33.53,33.53,0,0,1-14.23,9.83,54.91,54.91,0,0,1-18.63,3q-13.57,0-22.56-3.13A31,31,0,0,1,308.65,353a41.85,41.85,0,0,1-7.59-14q-2.24-7.35-2.24-23.36v-52.9q0-20.88,3.6-31.27t14.33-16.66q10.71-6.27,26-6.27A54.59,54.59,0,0,1,365,212.88q9.83,4.35,14.69,10.63a34.92,34.92,0,0,1,6.6,14.13Q388,245.52,388,262.73ZM350.21,250q0-12.08-1.17-15.12t-5.47-3q-4.21,0-5.57,3.23T336.64,250v74q0,13.2,1.26,15.92c.85,1.81,2.67,2.71,5.48,2.71s4.65-1.06,5.52-3.18,1.31-6.9,1.31-14.33Z'/%3E%3C/svg%3E");
+    background-position: left 15% center;
+    background-repeat: no-repeat;
+    background-size: 20%
 }
-
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward:before {
-    background: url('../static/skip-forward.svg') no-repeat;
-    background-position: -2px -2px;
-}
-
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player:before {
-    background: url('../static/miniplayer-toggle-on.svg') no-repeat 0 0;
-    background-size: 20px;
-}
-
-.fluid_video_wrapper.fluid_mini_player_mode .fluid_controls_container .fluid_button.fluid_button_mini_player:before {
-    background: url('../static/miniplayer-toggle-off.svg') no-repeat 0 0;
-    background-size: 20px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg id='5d24e902-502c-4f9e-a964-735c0404843c' data-name='add10' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3Cstyle%3E.%5C31 f0b536f-3512-4376-9d38-2f0c40be1948%7Bfill:%23fbfbfb;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Eadd10%3C/title%3E%3Cpath class='1f0b536f-3512-4376-9d38-2f0c40be1948' d='M171.93,100H373.75a6.34,6.34,0,0,0,3.17-11.84L351.69,73.58a6.33,6.33,0,0,1-2.32-8.66L367,34.4a6.35,6.35,0,0,1,8.67-2.33L491.81,99.14A6.44,6.44,0,0,0,495,100h2.94a6.34,6.34,0,0,1,6.34,6.34h0l1.5.86-1.5,2.59v28.35l1.5,2.59-1.5.86h0a6.34,6.34,0,0,1-6.34,6.34H495a6.34,6.34,0,0,0-3.18.85L375.66,215.84a6.35,6.35,0,0,1-8.67-2.33L349.37,183a6.35,6.35,0,0,1,2.32-8.67l25.23-14.56a6.34,6.34,0,0,0-3.17-11.84H60a6.34,6.34,0,0,0-6.34,6.34V426A6.34,6.34,0,0,0,60,432.32H331.76a6.34,6.34,0,0,1,6.34,6.35v35.25a6.34,6.34,0,0,1-6.34,6.34H12.11a6.34,6.34,0,0,1-6.34-6.34V106.33A6.34,6.34,0,0,1,12.11,100Z'/%3E%3Cpath class='1f0b536f-3512-4376-9d38-2f0c40be1948' d='M173.12,213.43V365H135.3V283.74q0-17.61-.85-21.16a7.87,7.87,0,0,0-4.63-5.38q-3.79-1.83-16.9-1.83h-3.74V237.7q27.42-5.89,41.66-24.27Z'/%3E%3Cpath class='1f0b536f-3512-4376-9d38-2f0c40be1948' d='M277,264.73v50.56q0,17.22-1.88,25.09a34.66,34.66,0,0,1-7.77,14.7,33.53,33.53,0,0,1-14.23,9.83,54.91,54.91,0,0,1-18.63,3q-13.58,0-22.56-3.13A31,31,0,0,1,197.65,355a41.85,41.85,0,0,1-7.59-14q-2.24-7.35-2.24-23.36v-52.9q0-20.88,3.6-31.27t14.33-16.66q10.71-6.27,26-6.27A54.59,54.59,0,0,1,254,214.88q9.83,4.35,14.69,10.63a34.92,34.92,0,0,1,6.6,14.13Q277,247.52,277,264.73ZM239.21,252q0-12.08-1.17-15.12t-5.47-3q-4.22,0-5.57,3.23T225.64,252v74q0,13.2,1.26,15.92c.85,1.81,2.67,2.71,5.48,2.71s4.65-1.06,5.52-3.18,1.31-6.9,1.31-14.33Z'/%3E%3C/svg%3E");
+    background-position: right 17% center;
+    background-repeat: no-repeat;
+    background-size: 20%
 }
 
 .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back {
     margin-left: 5px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen_exit:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mute:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_volume:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard:hover:before,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player:hover:before {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_fullscreen_exit:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mute:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_volume:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard:hover:before, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_mini_player:hover:before {
     opacity: 1;
+}
+
+.fluid_video_wrapper:has(.vast_clickthrough_layer) .fluid_controls_container {
+    display: none !important;
+}
+
+.fluid_controls_container[style="display: none;"] {
+    /*! display:block !important; */
+}
+
+.fluid_controls_container[style="display: none;"] .fluid_controls_right {
+    opacity: 0
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container[style="display: none;"] .fluid_button.fluid_button_skip_back, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container[style="display: none;"] .fluid_button.fluid_button_skip_forward {
+    opacity: 0;
+}
+
+body:has(.skip_controls[style*="display: block"]) * {
+    user-select: none !important;
+}
+
+.player-holder {
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden
+}
+
+.img-holder {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.fluid_video_wrapper {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ad_countdown {
+    display: inline-block !important
+}
+
+.fluid_controls_progress_container.fluid_slider {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    box-shadow: inset 0 -20px 0 rgba(255,255,255,0.3);
+    padding-top: 11px;
+    background-position: center bottom 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.fluid_controls_progress {
+    display: block;
+    width: 100%;
+    background-color: rgba(255,255,255,0.2);
+    height: 20px;
+}
+
+.fluid_controls_currentprogress {
+    display: block;
+    height: 20px;
+    background-color: #f7235f8c !important;
+}
+
+.fluid_timeline_preview_container {
+    bottom: 18px;
+    ; }
+
+.fluid_controls_container.skip_controls[style="display: none;"] {
+    display: block !important;
+}
+
+.fluid_controls_container.skip_controls[style="display: none;"] .fluid_button {
+    opacity: 0;
+}
+
+.fluid_controls_container.skip_controls[style="display: none;"] .fluid_controls_progress_container.fluid_slider {
+    bottom: -15px
+}
+
+.fluid_timeline_preview_container[style*="left: -"] {
+    left: 0 !important;
 }
 
 .fp_title {
@@ -1084,46 +1200,6 @@
     font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
     font-weight: normal;
     white-space: nowrap;
-}
-
-/* Pulse class and keyframe animation */
-.transform-active {
-    animation: flash 1s infinite;
-    display: inline-block !important;
-    opacity: 0;
-}
-
-@-webkit-keyframes flash {
-    0% {
-        opacity: 0.6;
-        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-    }
-    100% {
-        opacity: 0;
-        display: none;
-        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
-}
-
-@keyframes flash {
-    0% {
-        opacity: 0.6;
-        -moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-    }
-    70% {
-        -moz-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-    }
-    100% {
-        opacity: 0;
-        display: none;
-        -moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
 }
 
 .fluid_nonLinear_top, .fluid_nonLinear_middle, .fluid_nonLinear_bottom {
@@ -1197,7 +1273,7 @@
 }
 
 .add_icon_clickthrough:before {
-    background: url('../static/fluid-icons.svg') no-repeat;
+    background: url(../static/fluid_one_icons.svg) no-repeat;
     height: 18px;
     width: 18px;
     top: 30px;
@@ -1206,28 +1282,16 @@
     background-position: -162px -57px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard {
     float: right;
     padding-right: 5px;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_theatre, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_playback_rate, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_video_source, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_download, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_subtitles, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_cardboard {
     display: none;
 }
 
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list,
-.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_video_playback_rates {
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_subtitles .fluid_subtitles_list, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_button_video_source .fluid_video_sources_list, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_video_playback_rates {
     z-index: 888888 !important;
     opacity: 0.9 !important;
 }
@@ -1253,45 +1317,15 @@
     z-index: 10;
 }
 
-.source_button_icon {
-    background: url('../static/fluid-icons.svg') no-repeat;
-    float: left;
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    background-position: -164px -21px;
-    opacity: 0;
-}
-
-.subtitle_button_icon {
-    background: url('../static/fluid-icons.svg') no-repeat;
-    float: left;
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    background-position: -164px -21px;
-    opacity: 0;
-}
-
-.source_selected {
-    opacity: 1 !important;
-}
-
-.subtitle_selected {
-    opacity: 1 !important;
-}
-
 @media only screen and (min-device-width: 375px) {
     .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_fluid_control_duration {
-        left: 105px;
+        left: 115px;
+        line-height: 2.7 ;
+        display: none;
     }
 
     .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container.no_volume_bar .fluid_fluid_control_duration {
         left: 32px;
-    }
-
-    .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_controls_right .fluid_control_volume_container {
-        display: block;
     }
 }
 
@@ -1313,7 +1347,6 @@
 }
 
 /** MiniPlayer */
-
 .fluid_video_wrapper.fluid_player_layout_default .mini-player-close-button-wrapper {
     display: none;
 }
@@ -1337,20 +1370,6 @@
     pointer-events: none;
 }
 
-.fluid_video_wrapper.fluid_mini_player_mode .mini-player-close-button {
-    position: absolute;
-    background: transparent url("../static/close-icon.svg") no-repeat scroll center center;
-    height: 22px;
-    width: 22px;
-    top: 6px;
-    right: 6px;
-    background-size: 22px;
-    cursor: pointer;
-    z-index: 32;
-    display: block;
-    pointer-events: all;
-}
-
 .fluid_video_wrapper.fluid_mini_player_mode:hover .mini-player-close-button-wrapper {
     opacity: 1;
 }
@@ -1362,18 +1381,6 @@
     width: 100%;
     height: 100%;
     display: none;
-}
-
-.fluidplayer-miniplayer-player-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen-sans, ubuntu, cantarell, 'helvetica neue', 'arial', sans-serif, 'apple color emoji', 'segoe ui emoji', 'segoe ui symbol';
-    background: #000 url('../static/miniplayer-toggle-on.svg') no-repeat 50% calc(50% - 48px);
-    background-size: 48px;
-    cursor: pointer;
 }
 
 .fluid_video_wrapper.fluid_mini_player_mode.fluid_video_wrapper.fluid_mini_player_mode--top-left {
@@ -1447,7 +1454,6 @@
 }
 
 .fluid_video_wrapper .fluid_player_skip_offset__backward-icon {
-    background: rgba(0, 0, 0, .5) url('../static/skip-backward.svg') no-repeat -2px 3px;
     width: 150px;
     height: 150px;
     background-size: contain;
@@ -1468,7 +1474,6 @@
 }
 
 .fluid_video_wrapper .fluid_player_skip_offset__forward-icon {
-    background: rgba(0, 0, 0, .5) url('../static/skip-forward.svg') no-repeat -2px 3px;
     width: 150px;
     height: 150px;
     background-size: cover;
@@ -1481,20 +1486,80 @@
     padding: 10px;
 }
 
-.fluid_video_wrapper .fluid_player_skip_offset__backward-icon.animate,
-.fluid_video_wrapper .fluid_player_skip_offset__forward-icon.animate {
+.fluid_video_wrapper .fluid_player_skip_offset__backward-icon.animate, .fluid_video_wrapper .fluid_player_skip_offset__forward-icon.animate {
     opacity: 1;
     transition: opacity 150ms ease-out;
 }
 
 @media screen and (max-width: 768px) {
-    .fluid_video_wrapper .fluid_player_skip_offset__backward-icon,
-    .fluid_video_wrapper .fluid_player_skip_offset__forward-icon {
+    .fluid_video_wrapper .fluid_player_skip_offset__backward-icon, .fluid_video_wrapper .fluid_player_skip_offset__forward-icon {
         width: 50px;
         height: 50px;
         border-radius: 50px;
         background-position-x: 0;
         background-position-y: 0;
         padding: 5px;
+    }
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_play, .fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_pause {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    height: 100%;
+    width: 50%;
+    opacity: 0;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_back {
+    display: block;
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    height: auto;
+    width: 25%;
+    left: 0;
+    opacity: 0.1;
+    text-align: center;
+}
+
+.fluid_video_wrapper.fluid_player_layout_default .fluid_controls_container .fluid_button.fluid_button_skip_forward {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    opacity: 0.1;
+    top: 10%;
+    bottom: 10%;
+    height: auto;
+    width: 25%;
+    text-align: center;
+}
+
+.fluid_timeline_preview_container {
+    transform: scale(0.8,0.8);
+    border-radius: 5px;
+    border: 0 none;
+    box-shadow: 3px 3px 0 #fff,-3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff
+}
+
+@media all and (max-width: 980px) {
+    .fluid_timeline_preview_container, .fluid_timeline_preview_container[style*="left: -"] {
+        left:14% !important;
+    }
+}
+
+.fluid_button.fluid_button_play.fluid_control_playpause {
+    opacity: 0.5 !important;
+}
+
+.initial_controls_show {
+    display: block !important
+}
+
+@media all and (max-width: 560px) {
+    .fluid_initial_play, .fluid_button.fluid_button_play.fluid_control_playpause {
+        background-size:25%;
     }
 }
