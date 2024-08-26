@@ -5,6 +5,7 @@ const semver = require('semver');
 const cheerio = require('cheerio');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Loading the current package.json - will be used to determine version etc.
 const packageJSON = require(path.resolve(__dirname, 'package.json'));
@@ -60,6 +61,11 @@ module.exports = (env, argv) => {
             FP_ENV: JSON.stringify(wpMode),
             FP_DEBUG: JSON.stringify(wpDebug),
             FP_WITH_CSS: false
+        }),
+        // Extract CSS into separate files
+        new MiniCssExtractPlugin({
+            filename: '[name].min.css',
+            chunkFilename: '[name].min.css',
         })
     ];
 
@@ -154,7 +160,7 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.css$/i,
-                    use: ['style-loader', 'css-loader'],
+                    use: [MiniCssExtractPlugin.loader, 'css-loader'],
                 },
                 {
                     test: /\.svg/,
