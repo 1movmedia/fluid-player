@@ -1984,11 +1984,23 @@ const fluidPlayerClass = function () {
             if (typeof (document['on' + eventType]) === 'object') {
                 document.addEventListener(eventType, function (ev) {
                     self.recalculateAdDimensions();
+                    self.updateFullscreenButton();
                 }, false);
             }
         });
 
         document.vastFullsreenChangeEventListenersAdded = true;
+    };
+
+    self.updateFullscreenButton = () => {
+        const fullscreenButton = self.domRef.player.parentNode.getElementsByClassName('fluid_control_fullscreen');
+        const menuOptionFullscreen = self.domRef.wrapper.querySelector('.context_option_fullscreen');
+
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+            self.fullscreenOn(fullscreenButton, menuOptionFullscreen);
+        } else {
+            self.fullscreenOff(fullscreenButton, menuOptionFullscreen);
+        }
     };
 
     self.setupPlayerWrapper = () => {
