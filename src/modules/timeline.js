@@ -193,15 +193,6 @@ export default function (playerInstance, options) {
         } else if ('static' === timelinePreview.type && typeof timelinePreview.frames === 'object') {
             timelinePreview.spriteImage = true;
             playerInstance.timelinePreviewData = timelinePreview.frames;
-
-            let images = {};
-
-            playerInstance.timelinePreviewData.forEach(frame => {
-                if (typeof images[frame.image] === 'undefined') {
-                    images[frame.image] = document.createElement('img');
-                    images[frame.image].src = frame.image;
-                }
-            });
         } else {
             throw 'Invalid thumbnail-preview - type must be VTT or static';
         }
