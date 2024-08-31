@@ -1949,6 +1949,11 @@ const fluidPlayerClass = function () {
             skipTo = 0;
         }
         self.domRef.player.currentTime = skipTo;
+
+        // Play if paused
+        if (self.domRef.player.paused) {
+            self.play();
+        }
     }
 
     /**
