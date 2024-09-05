@@ -1253,12 +1253,15 @@ const fluidPlayerClass = function () {
         // we need an initial position for touchstart events, as mouse up has no offset x for iOS
         let initialPosition;
         let lastPosition = NaN;
+        let positionBaseElement;
 
         if (self.displayOptions.layoutControls.showCardBoardView) {
-            initialPosition = self.getEventOffsetX(event, event.target.parentNode);
+            positionBaseElement = event.target.parentNode;
         } else {
-            initialPosition = self.getEventOffsetX(event, self.domRef.wrapper.querySelector('.fluid_controls_progress_container'));
+            positionBaseElement = self.domRef.wrapper.querySelector('.fluid_controls_progress_container');
         }
+
+        initialPosition = self.getEventOffsetX(event, positionBaseElement);
 
         if (self.isCurrentlyPlayingAd) {
             return;
@@ -1277,7 +1280,7 @@ const fluidPlayerClass = function () {
             let newTime = self.domRef.player.currentTime;
 
             if (totalWidth) {
-                newTime = self.currentVideoDuration * timeBarX / totalWidth;
+                newTime = self.currentVideoDuration * Math.min(timeBarX, totalWidth) / totalWidth;
                 if (!throttle) {
                     self.domRef.player.currentTime = newTime;
                 }
@@ -1289,7 +1292,7 @@ const fluidPlayerClass = function () {
         };
 
         const onProgressbarMouseMove = event => {
-            lastPosition = self.getEventOffsetX(event, event.target.parentNode);
+            lastPosition = self.getEventOffsetX(event, positionBaseElement);
             initialPosition = NaN; // mouse up will fire after the move, we don't want to trigger the initial position in the event of iOS
             let newTime = shiftTime(lastPosition, !self.displayOptions.layoutControls.controlBar.instantScrolling);
             self.contolProgressbarUpdate(newTime);
@@ -1302,7 +1305,7 @@ const fluidPlayerClass = function () {
             document.removeEventListener('mouseup', onProgressbarMouseUp);
             document.removeEventListener('touchend', onProgressbarMouseUp);
 
-            let clickedX = self.getEventOffsetX(event, event.target.parentNode);
+            let clickedX = self.getEventOffsetX(event, positionBaseElement);
 
             if (isNaN(clickedX)) {
                 if (!isNaN(initialPosition)) {
