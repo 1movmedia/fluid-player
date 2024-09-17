@@ -544,7 +544,7 @@ const fluidPlayerClass = function () {
         const loaderDiv = self.domRef.wrapper.querySelector('.vast_video_loading');
 
         if (loaderDiv) {
-            loaderDiv.style.display = showLoader ? 'table' : 'none';
+            loaderDiv.style.display = showLoader ? 'block' : 'none';
         }
     };
 
