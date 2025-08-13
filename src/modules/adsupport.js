@@ -181,6 +181,31 @@ export default function (playerInstance, options) {
                         enableCEA708Captions: false,
                     });
 
+                    // Add error handling for HLS ad loading
+                    hls.on(window.Hls.Events.ERROR, (event, data) => {
+                        if (data.fatal) {
+                            console.log('[FP_ERROR] HLS ad loading failed:', data.type, data.details);
+                            
+                            // Cleanup HLS player
+                            hls.detachMedia();
+                            hls.destroy();
+                            playerInstance.hlsPlayer = false;
+                            
+                            // Determine error code based on error type
+                            let errorCode = 500; // Default server error
+                            if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) {
+                                errorCode = 404; // Network/404 error
+                            } else if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR) {
+                                errorCode = 415; // Media format error
+                            }
+                            
+                            // Fallback to next VAST or main video
+                            ad.error = true;
+                            playerInstance.playMainVideoWhenVastFails(errorCode);
+                            return;
+                        }
+                    });
+
                     hls.attachMedia(playerInstance.domRef.player);
                     hls.loadSource(selectedMediaFile.src);
                     playerInstance.isCurrentlyPlayingAd = true;

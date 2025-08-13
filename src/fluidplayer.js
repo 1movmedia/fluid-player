@@ -2038,9 +2038,51 @@ const fluidPlayerClass = function () {
     };
 
     self.onErrorDetection = () => {
-        if (self.domRef.player.networkState === self.domRef.player.NETWORK_NO_SOURCE && self.isCurrentlyPlayingAd) {
-            //Probably the video ad file was not loaded successfully
-            self.playMainVideoWhenVastFails(401);
+        if (self.isCurrentlyPlayingAd) {
+            // Check for various types of media loading errors during ad playback
+            const networkState = self.domRef.player.networkState;
+            const error = self.domRef.player.error;
+
+            let shouldFallback = false;
+            let errorCode = 401; // Default error code
+
+            // Check for network errors
+            if (networkState === self.domRef.player.NETWORK_NO_SOURCE) {
+                shouldFallback = true;
+                errorCode = 401; // No source
+            }
+
+            // Check for media error codes
+            if (error) {
+                switch (error.code) {
+                    case error.MEDIA_ERR_ABORTED:
+                        // Media loading was aborted - might be network issue
+                        shouldFallback = true;
+                        errorCode = 400;
+                        break;
+                    case error.MEDIA_ERR_NETWORK:
+                        // Network error occurred while loading media (including 404)
+                        shouldFallback = true;
+                        errorCode = 404;
+                        break;
+                    case error.MEDIA_ERR_DECODE:
+                        // Media decoding error - file might be corrupted
+                        shouldFallback = true;
+                        errorCode = 415;
+                        break;
+                    case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                        // Media format not supported
+                        shouldFallback = true;
+                        errorCode = 415;
+                        break;
+                }
+            }
+
+            if (shouldFallback) {
+                console.log('[FP_ERROR] Ad media file failed to load:', error ? error.message : 'Network state: ' + networkState);
+                // Fallback to next VAST or main video
+                self.playMainVideoWhenVastFails(errorCode);
+            }
         }
     };
 

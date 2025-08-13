@@ -504,7 +504,8 @@ export default function (playerInstance, options) {
     };
 
     playerInstance.playMainVideoWhenVastFails = (errorCode) => {
-        playerInstance.debugMessage('playMainVideoWhenVastFails called');
+        playerInstance.debugMessage('playMainVideoWhenVastFails called with error code: ' + errorCode);
+        
         playerInstance.domRef.player.removeEventListener('loadedmetadata', playerInstance.switchPlayerToVastMode);
         playerInstance.domRef.player.pause();
         playerInstance.toggleLoader(false);
