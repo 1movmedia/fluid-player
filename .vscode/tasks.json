@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build with /tube/fluid/js/ publicPath (example)",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"webpack",
+				"--mode=development",
+				"--env",
+				"publicPath=/tube/fluid/js/"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"isBackground": false
+		}
+	]
+}

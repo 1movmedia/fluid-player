@@ -16,7 +16,7 @@ if (!semver.valid(packageJSON.version)) {
 }
 
 // Distribution options configure how build paths are going to be configured.
-const getDistOptions = (mode) => {
+const getDistOptions = (mode, customPublicPath) => {
     const fullVersion = packageJSON.version;
     const majorVersion = semver.major(packageJSON.version);
     const cdnRoot = packageJSON.com_fluidplayer.cdn;
@@ -25,17 +25,17 @@ const getDistOptions = (mode) => {
         case 'development':
             return {
                 path: path.resolve(__dirname, 'dist'),
-                publicPath: ''
+                publicPath: customPublicPath || process.env.DEV_PUBLIC_PATH || ''
             };
         case 'current':
             return {
                 path: path.resolve(__dirname, 'dist-cdn/v' + majorVersion + '/current/'),
-                publicPath: cdnRoot + '/v' + majorVersion + '/current/'
+                publicPath: customPublicPath || cdnRoot + '/v' + majorVersion + '/current/'
             };
         case 'versioned':
             return {
                 path: path.resolve(__dirname, 'dist-cdn/' + fullVersion + '/'),
-                publicPath: cdnRoot + '/' + fullVersion + '/'
+                publicPath: customPublicPath || cdnRoot + '/' + fullVersion + '/'
             };
         default:
             throw 'Unknown distribution type provided in --dist!';
@@ -47,7 +47,8 @@ module.exports = (env, argv) => {
     const wpMode = typeof argv.mode !== 'undefined' ? argv.mode : 'development';
     const wpDebug = wpMode === 'development' && typeof env.debug !== 'undefined' && !!env.debug;
     const wpDist = typeof env.dist !== 'undefined' ? env.dist : 'development';
-    const wpDistOptions = getDistOptions(wpDist);
+    const wpPublicPath = typeof env.publicPath !== 'undefined' ? env.publicPath : null;
+    const wpDistOptions = getDistOptions(wpDist, wpPublicPath);
 
     if ('development' !== wpDist && (wpMode !== 'production' || wpDebug)) {
         throw 'Building a production distribution in development mode or with debug enabled is not allowed!'
